@@ -27,9 +27,10 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue"
 import { ref } from "vue";
 
-export default {
+export default Vue.extend({
   name: "SearchPage",
   setup() {
     const jokes = ref(null);
@@ -65,5 +66,5 @@ export default {
       else e.preventDefault();
     },
   },
-};
+});
 </script>
