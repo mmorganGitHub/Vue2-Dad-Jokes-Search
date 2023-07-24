@@ -16,12 +16,13 @@
       <button type="submit">Submit</button>
     </form>
     <p v-if="!jokes">Loading...</p>
-    <ol v-else-if="jokes.length">
-      <li v-for="{ joke, index } in jokes" v-bind:key="index">
-        {{ joke }}
+    <p v-else-if="!jokes.length">No jokes found</p>
+    <ol v-else>
+      <li v-for="(joke, index) in jokes" :index="index">
+        {{ joke.joke }}
       </li>
     </ol>
-    <p v-else>No jokes found</p>
+    
   </div>
 </template>
 
@@ -29,6 +30,7 @@
 import { ref } from "vue";
 
 export default {
+  name: "SearchPage",
   setup() {
     const jokes = ref(null);
     const jokeQuery = ref("");
