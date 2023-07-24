@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
   <div class="card">
     <h1>Search</h1>
@@ -17,7 +16,7 @@
       <button type="submit">Submit</button>
     </form>
     <p v-if="!jokes">Loading...</p>
-    <p v-else-if="!jokes.length">No jokes found</p>
+    <!-- <p v-else-if="!jokes.length">No jokes found</p> -->
     <ol v-else>
       <li v-for="(joke, index) in jokes" :index="index">
         {{ joke.joke }}
@@ -34,7 +33,10 @@ import { ref } from "vue";
 export default Vue.extend({
   name: "SearchPage",
   setup() {
-    const jokes = ref(null);
+    interface joke {
+      joke: string
+    }
+    const jokes = ref();
     const jokeQuery = ref("");
 
     async function updateJokes() {
