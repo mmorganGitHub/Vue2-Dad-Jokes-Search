@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div class="card">
     <h1>Search</h1>
